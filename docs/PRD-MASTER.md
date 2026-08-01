@@ -37,8 +37,8 @@ Voir `features.md` pour le détail complet.
 
 ## 7. Roadmap synthétique
 
-- **V1 (MVP)** : estimation prix/marge + détection contrefaçon (4 marques) + génération annonce + dashboard basique
-- **V2** : plus de marques, scan photo direct sans formulaire, extension eBay/Leboncoin
+- **V1 (MVP)** : estimation prix/marge + détection contrefaçon (toutes marques, checklist dédiée si dispo sinon générique — voir `decisions.md`) + génération annonce + dashboard basique
+- **V2** : plus de checklists dédiées, scan photo direct sans formulaire, extension eBay/Leboncoin
 - **V3** : appli mobile, publication auto Vinted, social proof entre revendeurs
 
 Détail développement complet : voir `roadmap-dev.md`.
@@ -51,6 +51,7 @@ Détail développement complet : voir `roadmap-dev.md`.
 
 ## 9. Documents liés
 
+- `decisions.md` — référentiel unique des décisions techniques/produit tranchées (à lire en premier)
 - `vision.md` — vision long terme et positionnement
 - `features.md` — spec détaillée de chaque fonctionnalité
 - `database.md` — schéma de base de données

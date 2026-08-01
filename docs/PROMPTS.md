@@ -1,29 +1,29 @@
 # Dénicho — PROMPTS (Claude Code, phase par phase)
 
-Copie-colle ces prompts dans Claude Code, un par un, dans l'ordre. Chaque prompt suppose que les docs `PRD-MASTER.md`, `features.md`, `database.md`, `ui.md`, `coding-rules.md` sont accessibles dans le repo (dossier `/docs`).
+Copie-colle ces prompts dans Claude Code, un par un, dans l'ordre. Chaque prompt suppose que **tous** les docs de `/docs` sont accessibles dans le repo, en particulier `decisions.md` (référentiel des choix tranchés — à lire en premier par Claude Code à chaque nouvelle session).
 
 ---
 
 ## Phase 0 — Test de faisabilité détection contrefaçon
 
+**`test-authenticity.py` existe déjà** à la racine du repo (marque en argument + 2 à 4 images, checklists dédiées pour 50 marques, sortie JSON structurée avec score par point + score global + verdict selon les seuils de `decisions.md`). Ne pas le recréer depuis zéro. Ce qui manque encore et reste à faire :
+
 ```
-Lis /docs/PRD-MASTER.md et /docs/features.md section 2 (détection de contrefaçon).
-Crée un script Python simple (test-authenticity.py) qui :
-- prend en entrée le nom d'une marque + 2-3 chemins d'images locales
-- appelle l'API Claude (vision) avec un prompt structuré demandant d'analyser l'authenticité d'un vêtement de cette marque à partir de : logo, étiquette, coutures, matière
-- si la marque n'a pas de checklist connue, utilise un prompt générique de vérification d'authenticité
-- retourne un JSON avec verdict + score + détail par point
-Objectif : juste tester la fiabilité sur plusieurs marques différentes (au moins Stone Island + une autre marque), pas construire de produit.
+Lis /docs/decisions.md, /docs/PRD-MASTER.md, /docs/features.md section 2 (détection de contrefaçon) et /docs/roadmap-dev.md section "Critères de succès chiffrés".
+Le script test-authenticity.py existe déjà (marque + 2-4 images, 50 checklists dédiées, verdict/score selon les seuils de decisions.md) — adapte-le si besoin mais ne le recrée pas.
+Crée un script batch (run-test-set.py) qui prend un dossier contenant plusieurs articles (chacun avec ses 2-4 photos) et leur verdict réel connu (nommage type "stone-island-vrai-01/"), appelle test-authenticity.py sur chacun, et calcule le taux de bonnes réponses sur l'ensemble.
+Objectif : constituer un jeu de test d'au moins 20 articles connus (authentiques/contrefaits, au moins 2 marques) et mesurer si on atteint le seuil de 85% de verdicts corrects. Pas construire de produit, juste valider la fiabilité — c'est cette mesure réelle qui manque encore avant de passer à la Phase 1.
 ```
 
 ## Phase 1 — Setup projet
 
 ```
-Lis tous les fichiers dans /docs.
-Initialise un projet avec : frontend React + Tailwind, backend Node.js/Express, PostgreSQL.
+Lis /docs/decisions.md puis tous les autres fichiers dans /docs.
+Initialise un projet avec : frontend React + Tailwind + shadcn/ui, backend FastAPI (Python), PostgreSQL.
 Respecte la structure de dossiers et les conventions définies dans /docs/coding-rules.md.
-Crée les tables de la base de données décrites dans /docs/database.md via une migration SQL.
-Mets en place une auth basique utilisateur (email + mot de passe, JWT).
+Crée les tables de la base de données décrites dans /docs/database.md via une migration (Alembic).
+Mets en place une auth basique utilisateur (email + mot de passe hashé, JWT + refresh token).
+Crée un fichier .env.example listant toutes les variables attendues, et vérifie que .env est bien dans .gitignore.
 ```
 
 ## Phase 2 — Détection de contrefaçon (MVP)

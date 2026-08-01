@@ -12,9 +12,15 @@
 - Marge estimée en € et en %
 - Indicateur de vitesse de vente probable (rapide/moyen/lent) si donnée dispo
 
-**Source de données**
-- Ventes Vinted terminées (scraping, pas d'API officielle → prévoir un plan B manuel au démarrage)
-- eBay sold listings (API officielle disponible)
+**Source de données (tranché)**
+
+Approche en 2 étapes, pas de scraping Vinted tant que le point légal n'est pas validé (voir `legal.md`) :
+
+1. **Lancement (V1 MVP)** : base manuelle. Alexis (et les beta testeurs) remplissent une table de référence de prix de revente observés par marque/modèle/état, à partir de son expérience BCT_Store. Volume minimum viable : au moins 15-20 références par marque prioritaire (Stone Island, Nike, Supreme, Ralph Lauren, Carhartt, TNF) avant le lancement beta. Format de saisie : simple formulaire admin ou fichier CSV importé.
+2. **eBay sold listings (API officielle)** en complément dès que possible — légal, gratuit, mais couvre moins bien le marché Vinted-first visé.
+3. **Scraping Vinted** : uniquement si validé légalement (voir `legal.md`, section scraping). Ne pas coder cette brique avant validation explicite. Si validé : anticiper le risque de ban IP (rotation de proxy, rate limiting).
+
+Tant que (1) et (2) ne couvrent pas assez de références, l'estimation affiche une fourchette large avec un niveau de confiance explicite ("basé sur peu de données comparables").
 
 ## 2. Détection de contrefaçon (feature phare)
 
@@ -31,6 +37,22 @@
 - Verdict : "authentique probable" / "suspect" / "contrefaçon probable"
 - Détail par point de contrôle (ex : police du logo, position étiquette, qualité couture)
 - Disclaimer visible : estimation IA, ne remplace pas une expertise professionnelle certifiée
+
+**Méthodologie de scoring (tranchée, reproductible)**
+
+- Chaque point de contrôle (logo, étiquette, couture, zip, matière) reçoit un score de confiance individuel de 0 à 100, retourné par le modèle vision
+- Le score global est la **moyenne pondérée** des points disponibles, avec pondération par défaut égale entre tous les points analysés (pas de pondération différenciée en V1 — à affiner en V2 une fois des données réelles de feedback disponibles via `authenticity_feedback`)
+- Seuils de verdict, appliqués au score global :
+  - **≥ 75** → `authentique_probable`
+  - **40 à 74** → `suspect`
+  - **< 40** → `contrefacon_probable`
+- Ces seuils sont une hypothèse de départ à valider/ajuster pendant la Phase 0 (voir critères de succès dans `roadmap-dev.md`) — ne pas les considérer figés avant le premier test réel
+
+**Détection automatique de la marque (tranchée pour la V1)**
+
+- **V1 : pas de détection auto par photo.** L'utilisateur saisit toujours la marque manuellement (champ texte libre relié à la table `brands`).
+- Raison : la détection auto de marque par photo est un problème de vision distinct (classification, pas vérification d'authenticité) qui ajoute un risque technique supplémentaire non nécessaire pour valider l'angle produit. Ce n'est pas la priorité de la Phase 0.
+- V2 (si le produit est validé) : ajouter un modèle de détection auto en amont, avec la saisie manuelle en fallback si la confiance de détection est faible.
 
 **Scope V1 — toutes marques**
 - Pas de restriction à 4 marques : l'utilisateur renseigne ou fait détecter n'importe quelle marque

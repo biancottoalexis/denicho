@@ -24,3 +24,14 @@ Adapté ici avec un accent qui évoque le "flair"/la trouvaille (option : garder
 - Badge de verdict (vert/orange/rouge) pour authenticité
 - Carte article (photo + marque + statut + marge)
 - Jauge de score de confiance
+
+## Mobile-first (angle mort corrigé)
+
+L'usage réel de l'app se fait très majoritairement au téléphone : un revendeur photographie un article directement en friperie ou vide-grenier. Toute l'interface doit être conçue mobile-first, pas adaptée après coup :
+- Formulaire d'upload photo pensé pour la caméra du téléphone (accès direct à l'appareil photo, pas juste un input file générique)
+- Résultats (estimation, détection contrefaçon) lisibles en une seule colonne sur petit écran, sans scroll horizontal
+- Le dashboard peut avoir une version desktop plus riche (tableaux, export CSV), mais l'ajout d'article et la détection contrefaçon doivent être irréprochables sur mobile en priorité
+
+## Librairie de composants (tranchée)
+
+**shadcn/ui** (avec Tailwind, cohérent avec la stack) — pour que Claude Code réutilise des composants existants (boutons, cartes, badges, formulaires) au lieu de réinventer un design system à chaque session. Toute nouvelle session Claude Code doit vérifier les composants shadcn/ui déjà utilisés avant d'en créer de nouveaux.

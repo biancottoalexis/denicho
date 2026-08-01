@@ -1,9 +1,20 @@
 # Dénicho — Roadmap dev
 
 ## Phase 0 — Validation technique (avant tout code produit)
-- Tester la détection de contrefaçon sur un échantillon de photos connues (vraies/fausses Stone Island) avec un appel direct à une API vision
+- Tester la détection de contrefaçon sur un échantillon de photos connues (vraies/fausses Stone Island + au moins une autre marque) avec un appel direct à une API vision
 - Objectif : savoir si la fiabilité est suffisante pour construire une feature dessus
 - Si ça ne marche pas bien sur Stone Island, tester sur une autre marque (Nike ou Ralph Lauren) avant d'abandonner l'angle
+
+### Critères de succès chiffrés (obligatoires pour valider la Phase 0)
+
+- Construire un jeu de test d'au moins **20 articles connus** (authentiques et contrefaits mélangés, idéalement 10/10) sur au moins 2 marques
+- Faire tourner `test-authenticity.py` sur chaque article et comparer le verdict retourné à la réalité connue
+- **Seuil de validation : ≥ 85% de verdicts corrects** sur ce jeu de test
+- Si le taux est en dessous de 85% :
+  - Entre 60% et 85% : ajuster le prompt/la méthodologie de scoring (voir `features.md`) et retester avant d'abandonner
+  - En dessous de 60% : l'angle détection de contrefaçon n'est probablement pas assez fiable en l'état, revoir le concept avec Alexis avant de continuer le développement
+- Noter également le coût réel mesuré par appel (à reporter dans `business-model.md`) et le temps de réponse moyen (pour la stratégie de timeout dans `coding-rules.md`)
+- Cette validation ne se discute pas au feeling — le chiffre tranche
 
 ## Phase 1 — Setup projet
 - Init repo, structure dossiers (voir `coding-rules.md`)

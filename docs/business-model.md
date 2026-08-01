@@ -1,6 +1,12 @@
 # Dénicho — Business Model
 
+## Processeur de paiement
+
+Stripe — décision tranchée (voir `coding-rules.md` et `decisions.md`). Gère abonnements récurrents, essais gratuits, et webhooks pour synchroniser la table `subscriptions`.
+
 ## Structure de pricing
+
+**Important : ce pricing est une hypothèse de travail, pas définitif.** Il doit être confirmé/ajusté une fois le coût réel mesuré en Phase 0 (voir section "Coûts variables" ci-dessous). Ne pas communiquer publiquement ces prix avant cette validation.
 
 ### Free
 - 3 estimations prix/marge par mois
@@ -25,8 +31,8 @@ La détection de contrefaçon est le produit d'appel (feature qu'aucun concurren
 
 ## Coûts variables à surveiller
 
-- Coût par appel API vision (détection contrefaçon) — à calculer précisément en Phase 0 avant de fixer les prix définitifs
-- Coût de scraping/mise à jour des données de vente comparables
+- **Coût par appel API vision (détection contrefaçon)** — à mesurer précisément pendant la Phase 0 : noter le coût réel en tokens/€ pour chaque appel du script `test-authenticity.py` (nombre d'images envoyées, taille des prompts) et l'extrapoler sur le volume mensuel attendu par plan (ex : 10 détections/mois en Starter). Ce chiffre doit être reporté ici une fois connu, avant de figer les prix.
+- Coût de mise à jour de la base manuelle de prix (Feature 1) — temps humain au démarrage, pas de coût scraping tant que ce point n'est pas validé légalement (voir `legal.md`)
 
 ## Acquisition — coût zéro au départ
 
