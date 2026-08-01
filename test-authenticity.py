@@ -85,6 +85,311 @@ BRAND_CHECKLISTS = {
         "Matière : cohérence du tissu technique annoncé (Gore-Tex, ripstop...), "
         "texture et grammage",
     ],
+    "adidas": [
+        "Logo trèfle ou 3 bandes : régularité de l'espacement et de l'angle des "
+        "bandes, qualité de l'impression ou de la broderie",
+        "Étiquette intérieure : référence article, tampon 'adidas AG', pays de "
+        "fabrication cohérent, instructions d'entretien",
+        "Coutures : régularité, qualité des surpiqûres sur les bandes latérales",
+        "Matière : grammage et texture, cohérence avec la technologie technique "
+        "annoncée (ex. Primeknit, Climacool)",
+    ],
+    "puma": [
+        "Logo puma bondissant : proportions, netteté du contour, qualité de la "
+        "broderie ou de l'impression",
+        "Étiquette intérieure : police du texte 'PUMA', référence modèle, "
+        "instructions d'entretien",
+        "Coutures : régularité, qualité des finitions sur les bandes latérales",
+        "Matière : grammage, texture, cohérence avec la gamme technique annoncée",
+    ],
+    "new balance": [
+        "Logo 'N' : symétrie, épaisseur régulière, qualité de la couture/broderie "
+        "sur les côtés (souvent cousu, pas simplement collé sur les modèles premium)",
+        "Étiquette intérieure : référence modèle, cohérence 'Made in USA/UK' "
+        "avec la gamme, instructions d'entretien",
+        "Coutures : qualité et régularité, finition des empiècements",
+        "Matière : qualité du daim/mesh, grammage",
+    ],
+    "under armour": [
+        "Logo 'UA' entrelacé : netteté, régularité des lignes",
+        "Étiquette intérieure : police du texte, référence modèle, technologie "
+        "annoncée (HeatGear, ColdGear...) cohérente",
+        "Coutures : qualité des surpiqûres techniques, régularité",
+        "Matière : texture technique (compression, mesh), grammage",
+    ],
+    "reebok": [
+        "Logo vector/delta : proportions, qualité de l'impression ou de la broderie",
+        "Étiquette intérieure : police du texte 'Reebok', référence modèle, "
+        "instructions d'entretien",
+        "Coutures : régularité, qualité des finitions",
+        "Matière : grammage, texture",
+    ],
+    "converse": [
+        "Patch cheville (étoile bleue) : netteté de l'impression, régularité de "
+        "l'étoile et du texte 'Chuck Taylor All Star'",
+        "Étiquette semelle intérieure : référence, taille, mentions 'All Star'",
+        "Coutures : qualité de la toile, régularité des points sur la semelle "
+        "en caoutchouc",
+        "Matière : toile canvas (grammage), semelle caoutchouc (texture, odeur)",
+    ],
+    "vans": [
+        "Logo 'V' latéral (patch ou étiquette) : netteté, position exacte sur le côté",
+        "Étiquette languette : référence modèle, taille, mention 'off the wall'",
+        "Coutures : qualité de la jonction toile/semelle, régularité",
+        "Matière : toile, semelle caoutchouc gaufrée (motif waffle régulier)",
+    ],
+    "fila": [
+        "Logo 'F' encadré : proportions, qualité de l'impression",
+        "Étiquette intérieure : police du texte, référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage, texture",
+    ],
+    "champion": [
+        "Logo 'C' brodé sur la manche : régularité de la broderie, proportions",
+        "Étiquette intérieure : police 'Champion', mention 'Reverse Weave' si "
+        "applicable, instructions d'entretien",
+        "Coutures : régularité, qualité des surpiqûres",
+        "Matière : grammage du molleton, tissage particulier du 'Reverse Weave' "
+        "(résistance au rétrécissement)",
+    ],
+    "lacoste": [
+        "Logo crocodile brodé : proportions, densité de la broderie, cohérence "
+        "de la couleur verte",
+        "Étiquette intérieure : police du texte, référence, petit crocodile sur "
+        "l'étiquette, instructions d'entretien",
+        "Coutures : qualité du col piqué, boutons (souvent gravés du logo)",
+        "Matière : grammage du piqué de coton",
+    ],
+    "tommy hilfiger": [
+        "Logo drapeau : proportions, netteté des couleurs (rouge/blanc/bleu)",
+        "Étiquette intérieure : police du texte, référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage, texture",
+    ],
+    "calvin klein": [
+        "Logo/bandeau élastique 'Calvin Klein' (sous-vêtements) ou étiquette "
+        "texte minimaliste : régularité de l'impression, police exacte",
+        "Étiquette intérieure : référence, instructions d'entretien, composition "
+        "matière indiquée",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "levi's": [
+        "Étiquette rouge poche arrière 'Levi's' : police exacte, forme régulière",
+        "Étiquette taille/entretien intérieure et patch cuir '2 chevaux' au dos",
+        "Coutures : fil orange caractéristique, rivets cuivrés, qualité des surpiqûres",
+        "Matière : denim (poids, texture, cohérence du délavage)",
+    ],
+    "diesel": [
+        "Patch cuir arrière (jeans) : qualité de la gravure, police",
+        "Étiquette intérieure : référence modèle, instructions d'entretien",
+        "Coutures : qualité, rivets",
+        "Matière : denim/tissu, grammage",
+    ],
+    "guess": [
+        "Logo triangle : proportions, netteté",
+        "Étiquette intérieure : police du texte, référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage, texture",
+    ],
+    "patagonia": [
+        "Logo montagne brodé/imprimé : netteté des couleurs, proportions",
+        "Étiquette intérieure : référence, cohérence de la matière technique "
+        "annoncée (souvent recyclée), instructions d'entretien",
+        "Coutures : qualité d'étanchéité (vestes techniques)",
+        "Matière : tissu technique annoncé, grammage",
+    ],
+    "columbia": [
+        "Logo cercle 'Columbia' : netteté, proportions",
+        "Étiquette intérieure : référence, cohérence de la technologie annoncée "
+        "(Omni-Heat, Omni-Tech...), instructions d'entretien",
+        "Coutures : qualité, étanchéité",
+        "Matière : texture technique cohérente",
+    ],
+    "dickies": [
+        "Logo/étiquette rectangulaire rouge : police, netteté",
+        "Étiquette intérieure : référence modèle (ex. '874'), instructions d'entretien",
+        "Coutures : robustesse workwear, régularité, double surpiqûre",
+        "Matière : grammage du twill",
+    ],
+    "timberland": [
+        "Logo arbre : netteté, proportions, broderie ou gravure cuir",
+        "Étiquette intérieure : référence modèle, instructions d'entretien",
+        "Coutures : qualité des coutures cuir (souvent Goodyear welt sur les "
+        "modèles premium)",
+        "Matière : qualité du cuir nubuck, semelle caoutchouc",
+    ],
+    "burberry": [
+        "Motif tartan check : régularité et alignement des lignes et des "
+        "couleurs (beige, noir, rouge, blanc), qualité du tissage/impression",
+        "Étiquette intérieure : police, référence, cohérence 'Made in England/Italy'",
+        "Coutures : finition haut de gamme, régularité",
+        "Matière : grammage et texture du coton gabardine",
+    ],
+    "gucci": [
+        "Motif double G / GG : symétrie, netteté, régularité de la répétition du motif",
+        "Étiquette intérieure : police, numéro de série, instructions d'entretien, "
+        "cohérence 'Made in Italy'",
+        "Coutures : finition haut de gamme, régularité",
+        "Matière : qualité perçue du cuir ou du tissu",
+    ],
+    "louis vuitton": [
+        "Motif monogramme (LV) : alignement et symétrie du motif, netteté des "
+        "contours, régularité de la répétition",
+        "Étiquette intérieure : numéro de date (date code), police, cohérence "
+        "'Made in France/Italy/USA'",
+        "Coutures : finition haut de gamme, régularité (généralement très dense "
+        "sur le cuir naturel)",
+        "Matière : qualité du canvas enduit ou du cuir naturel (odeur, patine)",
+    ],
+    "chanel": [
+        "Logo double C : symétrie parfaite, proportions, netteté de la gravure "
+        "ou de la broderie",
+        "Étiquette intérieure : numéro de série, police, cohérence 'Made in "
+        "France/Italy'",
+        "Coutures : finition haut de gamme, régularité extrême",
+        "Matière : qualité du tweed ou du cuir matelassé, poids",
+    ],
+    "dior": [
+        "Logo 'CD' ou motif oblique : netteté, symétrie, régularité",
+        "Étiquette intérieure : référence, numéro de série, police, cohérence "
+        "'Made in Italy/France'",
+        "Coutures : finition haut de gamme, régularité",
+        "Matière : qualité perçue du tissu ou du cuir",
+    ],
+    "prada": [
+        "Triangle logo métallique : netteté de la gravure, fixation régulière",
+        "Étiquette intérieure : police, numéro de série, cohérence 'Made in Italy'",
+        "Coutures : finition haut de gamme, régularité",
+        "Matière : qualité du nylon technique (Re-Nylon) ou du cuir saffiano "
+        "(grain régulier)",
+    ],
+    "balenciaga": [
+        "Logo texte imprimé : police exacte, netteté de l'impression",
+        "Étiquette intérieure : référence, instructions d'entretien, cohérence "
+        "'Made in Italy'",
+        "Coutures : finition, régularité",
+        "Matière : grammage, texture (souvent oversized ou technique)",
+    ],
+    "versace": [
+        "Logo Méduse : netteté du détail, proportions, dorure régulière",
+        "Étiquette intérieure : police, référence, cohérence 'Made in Italy'",
+        "Coutures : finition haut de gamme",
+        "Matière : qualité de la soie ou du coton, précision des motifs baroques",
+    ],
+    "armani": [
+        "Logo aigle (Emporio Armani) ou texte : netteté, proportions",
+        "Étiquette intérieure : police, référence, cohérence 'Made in Italy'",
+        "Coutures : finition, régularité",
+        "Matière : qualité perçue, grammage",
+    ],
+    "hugo boss": [
+        "Logo/texte 'BOSS' : police exacte, netteté",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité, finition",
+        "Matière : grammage, texture",
+    ],
+    "moncler": [
+        "Patch tricolore (bleu/blanc/rouge) avec coq : netteté, proportions, "
+        "fixation régulière",
+        "Étiquette intérieure : numéro de série, police, cohérence 'Made in...', "
+        "certification du duvet",
+        "Coutures : qualité des surpiqûres de caissons (baffles), étanchéité",
+        "Matière : qualité du duvet (gonflant), tissu extérieur",
+    ],
+    "canada goose": [
+        "Patch écusson rond (arctic) : netteté, couleurs, fixation",
+        "Étiquette intérieure : numéro de série, instructions d'entretien, "
+        "hologramme d'authenticité si présent",
+        "Coutures : qualité des caissons, étanchéité",
+        "Matière : duvet, tissu Arctic-Tech",
+    ],
+    "off-white": [
+        "Logo flèches / texte 'OFF-WHITE' : police Helvetica caractéristique, "
+        "netteté de l'impression, guillemets caractéristiques",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage, texture",
+    ],
+    "palm angels": [
+        "Logo ours / texte : police, netteté de l'impression",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "bape": [
+        "Motif camouflage caractéristique et logo tête de singe : netteté et "
+        "régularité du motif, précision du logo brodé",
+        "Étiquette intérieure : référence, instructions d'entretien, tag "
+        "'A Bathing Ape'",
+        "Coutures : régularité, qualité",
+        "Matière : grammage du molleton, qualité du print camouflage",
+    ],
+    "stussy": [
+        "Logo signature manuscrite : fluidité et régularité du tracé (imprimé "
+        "ou brodé), proportions",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "palace": [
+        "Logo tri-ferg (triangle) : netteté, proportions, régularité des trois segments",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "kenzo": [
+        "Logo tigre brodé : densité et précision de la broderie, cohérence des couleurs",
+        "Étiquette intérieure : référence, instructions d'entretien, cohérence "
+        "'Made in...'",
+        "Coutures : finition",
+        "Matière : grammage, qualité du molleton ou du tissu",
+    ],
+    "fred perry": [
+        "Logo laurier brodé sur la poitrine : proportions, précision de la broderie",
+        "Étiquette intérieure : référence, instructions d'entretien, liseré "
+        "caractéristique sur col/manches",
+        "Coutures : régularité, qualité du col piqué",
+        "Matière : grammage du piqué de coton",
+    ],
+    "nautica": [
+        "Logo drapeau/voile : netteté, proportions",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "abercrombie & fitch": [
+        "Logo élan brodé : précision de la broderie, proportions",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage, qualité du coton",
+    ],
+    "hollister": [
+        "Logo mouette/texte : précision, netteté",
+        "Étiquette intérieure : référence, instructions d'entretien",
+        "Coutures : régularité",
+        "Matière : grammage",
+    ],
+    "saint laurent": [
+        "Logo monogramme YSL : netteté, proportions, précision de la gravure "
+        "ou de l'impression",
+        "Étiquette intérieure : référence, numéro de série, cohérence 'Made in Italy'",
+        "Coutures : finition haut de gamme",
+        "Matière : qualité perçue du tissu ou du cuir",
+    ],
+    "givenchy": [
+        "Logo texte 'GIVENCHY' ou motif 4G : netteté, régularité",
+        "Étiquette intérieure : référence, numéro de série, cohérence 'Made in Italy'",
+        "Coutures : finition haut de gamme",
+        "Matière : qualité perçue du tissu ou du cuir",
+    ],
+    "jordan": [
+        "Logo Jumpman : silhouette précise, proportions, netteté",
+        "Étiquette languette/intérieure : référence modèle (colorway), taille, "
+        "tag 'Nike Air'",
+        "Coutures : qualité, régularité des surpiqûres",
+        "Matière : cuir/mesh, semelle (poids, rebond, odeur de colle suspecte)",
+    ],
 }
 
 GENERIC_CHECKLIST = [
