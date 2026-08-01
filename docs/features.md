@@ -22,6 +22,14 @@ Approche en 2 étapes, pas de scraping Vinted tant que le point légal n'est pas
 
 Tant que (1) et (2) ne couvrent pas assez de références, l'estimation affiche une fourchette large avec un niveau de confiance explicite ("basé sur peu de données comparables").
 
+**Contraintes techniques d'upload (tranchées)**
+
+- **Formats acceptés** : JPG, PNG, HEIC (converti automatiquement en JPG côté backend à l'upload, car HEIC n'est pas lisible par tous les modèles vision — conversion via Pillow/pillow-heif)
+- **Taille max par fichier** : 10 Mo
+- **Résolution minimale** : 800x800 px — en dessous, l'upload est refusé côté frontend avec un message clair ("photo trop petite pour une analyse fiable, réessaie de plus près / meilleure lumière")
+- **Détection de flou** : un contrôle basique de netteté (variance du Laplacien, calcul rapide côté backend à l'upload) rejette les photos manifestement floues avant même l'appel à l'API vision — évite de payer un appel API pour un résultat non fiable
+- Ces contraintes s'appliquent aux deux features qui utilisent des photos (détection contrefaçon et estimation prix, si photo fournie)
+
 ## 2. Détection de contrefaçon (feature phare)
 
 **Input**

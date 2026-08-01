@@ -43,6 +43,14 @@
 - Toi en premier testeur
 - 5-10 revendeurs externes (groupes Facebook/Discord revente)
 
+### Critères de succès chiffrés (obligatoires pour passer en Phase 7)
+
+- **Aucun bug bloquant non résolu** : aucun crash empêchant l'usage normal des 3 features principales (estimation, détection contrefaçon, génération annonce)
+- **Pertinence perçue de la détection contrefaçon** : au moins 70% des verdicts rendus aux beta testeurs sont jugés "pertinents" par eux (via le mécanisme `authenticity_feedback` — voir critère 4 sur son suivi), mesuré sur un minimum de 30 détections cumulées sur l'ensemble des testeurs
+- **Engagement minimum** : au moins 6 des 10 beta testeurs utilisent l'outil plus d'une fois dans la semaine de test (signal que le produit a un usage réel, pas juste testé une fois par politesse)
+- **Volonté de payer** : au moins 3 des 10 beta testeurs déclarent explicitement qu'ils paieraient pour l'outil au pricing annoncé (question posée directement en fin de beta, pas déduite)
+- Si ces seuils ne sont pas atteints : identifier lequel des 4 critères pose problème avant de décider si on ajuste le produit ou si on repousse le lancement contenu (Phase 7)
+
 ## Phase 7 — Lancement contenu
 - Angle : "j'ai créé un outil qui détecte les fausses Stone Island"
 - Format faceless (screen recording + voix), même méthode que ZeroToFirst

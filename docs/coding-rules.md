@@ -19,6 +19,7 @@ Toute décision technique supplémentaire (nouvelle lib, nouveau service tiers) 
 
 ## Stratégie de retry / timeout / fallback (appel API vision)
 
+- Validation upload AVANT tout appel API vision : format (JPG/PNG/HEIC), taille max 10 Mo, résolution min 800x800, contrôle de netteté basique — voir `features.md` section "Contraintes techniques d'upload". Rejeter côté backend, ne jamais laisser passer un upload invalide jusqu'à l'appel vision (coût inutile + score non fiable)
 - Timeout appel API vision : 30 secondes max
 - En cas de timeout ou d'erreur : 1 retry automatique, puis si échec persistant → retourner à l'utilisateur un statut clair "analyse indisponible, réessayez" (jamais un verdict par défaut inventé)
 - Si l'API refuse la requête (contenu bloqué, image illisible) : retourner un message explicite à l'utilisateur, ne jamais masquer l'erreur derrière un score neutre

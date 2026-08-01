@@ -98,6 +98,16 @@ PostgreSQL
 
 Cette table alimente l'enrichissement de `brand_reference_points` dans le temps (voir `vision.md` — différenciateur long terme).
 
+## Workflow de maintenance de `brand_reference_points` (qui alimente la base, concrètement)
+
+Sans workflow défini, la table `authenticity_feedback` existe mais rien ne l'exploite. Décision tranchée pour le MVP :
+
+- **Outil** : pas de panel admin dédié en V1 (trop coûteux à construire pour le volume attendu au début) — édition manuelle directe en DB via un client Postgres (ex : TablePlus, ou l'interface Railway) par Alexis lui-même
+- **Fréquence** : review hebdomadaire des nouveaux `authenticity_feedback` (chaque lundi, ou selon dispo) tant que le volume reste gérable manuellement (sous ~50 signalements/semaine)
+- **Process** : Alexis (ou une personne dédiée plus tard) parcourt les signalements "verdict_incorrect", identifie les patterns récurrents (ex : plusieurs signalements sur le même point de contrôle d'une marque), et ajuste/complète `brand_reference_points` en conséquence
+- **Seuil de bascule vers un outil dédié** : si le volume de signalements dépasse ~50/semaine ou si la review manuelle devient un goulot d'étranglement, construire un panel admin simple (liste des signalements + formulaire d'édition des points de contrôle) — à ajouter à `roadmap-dev.md` comme tâche V2 le cas échéant
+- Ce processus doit être vérifié comme fonctionnel avant la Phase 7 (lancement contenu), pas laissé en friche après le lancement
+
 ## Politique de rétention des photos
 
 - Les photos uploadées pour la détection de contrefaçon sont conservées **90 jours** après l'analyse, puis purgées automatiquement (job cron quotidien qui supprime les fichiers dont `item_photos.supprimer_apres` est dépassé)

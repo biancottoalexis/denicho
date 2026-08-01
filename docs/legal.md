@@ -2,6 +2,16 @@
 
 Important : ceci est une base de travail, pas un avis juridique. Vu que la feature phare touche à l'authenticité de produits de marque, il est fortement recommandé de faire relire les CGU/CGV par un avocat ou un service comme Legalstart avant le lancement public.
 
+## Localisation des données (RGPD)
+
+Railway héberge par défaut sur des régions US, ce qui pose un problème pour des utilisateurs français uploadant des photos personnelles (données à caractère personnel au sens RGPD).
+
+**Décision tranchée** : choisir explicitement une région EU sur Railway au moment du déploiement (Railway propose des régions Europe — à sélectionner dès la création du projet en Phase 1, pas à corriger après coup). Cette contrainte doit être vérifiée avant tout déploiement en production.
+
+Si pour une raison technique une région US devait être utilisée (ex : service tiers sans alternative EU), il faudrait alors documenter un mécanisme de transfert conforme (Clauses Contractuelles Types / SCC) — mais ce n'est pas le scénario prévu, l'objectif est d'éviter ce cas en choisissant EU dès le départ.
+
+À vérifier également : la région de l'API vision utilisée (Anthropic) et son propre traitement des données transmises — point à clarifier via la documentation Anthropic sur le traitement des données API avant le lancement public (au-delà de la Phase 0/tests internes).
+
 ## Point le plus urgent — statut du scraping Vinted
 
 C'est actuellement le vrai risque juridique du projet, plus urgent que le verdict de contrefaçon lui-même. Vinted n'a pas d'API publique officielle pour les ventes terminées ; scraper ses pages pose potentiellement une question de respect des conditions d'utilisation de la plateforme et, selon la méthode, de la réglementation sur l'accès à des systèmes de traitement de données.

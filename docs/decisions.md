@@ -12,7 +12,7 @@ Ce fichier recense toutes les décisions techniques/produit tranchées une fois 
 | Frontend | React + Tailwind | Cohérent avec ZeroToFirst |
 | DB | PostgreSQL | Standard, bon support relations + JSONB |
 | Librairie composants | shadcn/ui | Évite de réinventer un design system à chaque session |
-| Hébergement backend + DB | Railway | Simple, pas cher, bon support Python/Postgres |
+| Hébergement backend + DB | Railway, **région EU obligatoire** | Simple, pas cher, bon support Python/Postgres — région EU pour conformité RGPD (voir `legal.md`) |
 | Hébergement frontend | Vercel | Standard pour React |
 | Paiement | Stripe | Standard abonnements SaaS |
 | Vision/IA | API Claude (vision) | Déjà choisi dès le PRD initial |
