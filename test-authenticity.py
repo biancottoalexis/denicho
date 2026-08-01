@@ -48,6 +48,43 @@ BRAND_CHECKLISTS = {
         "Coutures : régularité, absence de fils qui dépassent, qualité des surpiqûres",
         "Matière : grammage, texture, odeur (une forte odeur de colle est suspecte)",
     ],
+    "supreme": [
+        "Logo box-logo : police (Futura Heavy Oblique), proportions du rectangle rouge, "
+        "épaisseur et régularité des lettres",
+        "Étiquette intérieure : qualité d'impression, taille et police du texte, "
+        "présence et cohérence de l'étiquette de composition/entretien",
+        "Coutures : régularité, qualité des finitions, absence de fils qui dépassent",
+        "Matière : grammage du tissu, qualité de la sérigraphie ou de la broderie "
+        "(craquelures, débordements de couleur)",
+    ],
+    "ralph lauren": [
+        "Logo joueur de polo : proportions du cheval et du cavalier, qualité et "
+        "densité de la broderie, couleurs",
+        "Étiquette intérieure : police du texte, qualité d'impression, référence "
+        "modèle, étiquette de composition",
+        "Coutures : régularité, qualité des boutons (souvent gravés du logo), "
+        "finition des poignets et du col",
+        "Matière : grammage du piqué de coton (polos), qualité perçue du tissu",
+    ],
+    "carhartt": [
+        "Logo/étiquette 'C' : proportions, qualité de la sérigraphie ou du patch cuir, "
+        "cohérence de la police du texte 'CARHARTT'",
+        "Étiquette intérieure : police du texte, qualité d'impression, référence "
+        "modèle, pays de fabrication cohérent avec la gamme",
+        "Coutures : robustesse et régularité (workwear = coutures renforcées), "
+        "qualité des rivets/boutons",
+        "Matière : grammage et texture du canvas/duck cotton, cohérence avec la "
+        "gamme annoncée",
+    ],
+    "the north face": [
+        "Logo 'half dome' : proportions, qualité de la broderie, cohérence de la police",
+        "Étiquette intérieure : référence modèle, instructions d'entretien, "
+        "étiquette de garantie 'lifetime warranty' si applicable",
+        "Coutures : qualité des soudures/coutures étanches (vestes techniques), "
+        "qualité des zips (marque, glissement)",
+        "Matière : cohérence du tissu technique annoncé (Gore-Tex, ripstop...), "
+        "texture et grammage",
+    ],
 }
 
 GENERIC_CHECKLIST = [
