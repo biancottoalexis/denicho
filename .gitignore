@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+
+# Rapports générés par run-test-set.py
+rapport-phase0.json
+
+# Photos de test réelles : ne pas committer, seules les instructions sont versionnées
+test-set/*
+!test-set/README.md

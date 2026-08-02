@@ -16,11 +16,21 @@ import base64
 import json
 import mimetypes
 import sys
+import time
 from pathlib import Path
 
 import anthropic
 
 MODEL = "claude-opus-5"
+
+# Tarifs $/million de tokens (prix catalogue, hors promos) — pour donner un ordre de
+# grandeur du coût par appel (voir docs/roadmap-dev.md, critères de succès Phase 0).
+# Un modèle absent de cette table donne un coût estimé à None plutôt qu'un chiffre faux.
+PRICING_PER_MTOK = {
+    "claude-opus-5": {"input": 5.0, "output": 25.0},
+    "claude-sonnet-5": {"input": 3.0, "output": 15.0},
+    "claude-haiku-4-5": {"input": 1.0, "output": 5.0},
+}
 
 DISCLAIMER = (
     "Cette analyse est une estimation générée par IA à titre indicatif. "
@@ -490,6 +500,19 @@ Consignes :
 - Réponds uniquement selon le format JSON demandé."""
 
 
+def estimate_cost_usd(model: str, usage) -> float | None:
+    pricing = PRICING_PER_MTOK.get(model)
+    if pricing is None:
+        return None
+    input_cost = (
+        usage.input_tokens * pricing["input"]
+        + (usage.cache_creation_input_tokens or 0) * pricing["input"] * 1.25
+        + (usage.cache_read_input_tokens or 0) * pricing["input"] * 0.1
+    )
+    output_cost = usage.output_tokens * pricing["output"]
+    return (input_cost + output_cost) / 1_000_000
+
+
 def analyze(brand: str, image_paths: list[Path], model: str) -> dict:
     checklist, mode = get_checklist(brand)
     prompt = build_prompt(brand, checklist, mode)
@@ -498,12 +521,14 @@ def analyze(brand: str, image_paths: list[Path], model: str) -> dict:
     content.append({"type": "text", "text": prompt})
 
     client = anthropic.Anthropic()
+    start = time.monotonic()
     response = client.messages.create(
         model=model,
         max_tokens=4096,
         output_config={"format": {"type": "json_schema", "schema": RESPONSE_SCHEMA}},
         messages=[{"role": "user", "content": content}],
     )
+    elapsed_seconds = time.monotonic() - start
 
     if response.stop_reason == "refusal":
         raise RuntimeError(f"Le modèle a refusé la requête (stop_details={response.stop_details}).")
@@ -516,6 +541,18 @@ def analyze(brand: str, image_paths: list[Path], model: str) -> dict:
     result["disclaimer"] = DISCLAIMER
     result["mode"] = mode
     result["marque"] = brand
+
+    # Coût/temps de réponse mesurés à chaque appel, pour alimenter les critères de
+    # succès chiffrés de la Phase 0 (voir docs/roadmap-dev.md et docs/business-model.md).
+    result["_meta"] = {
+        "modele": model,
+        "temps_reponse_secondes": round(elapsed_seconds, 2),
+        "input_tokens": response.usage.input_tokens,
+        "output_tokens": response.usage.output_tokens,
+        "cache_creation_input_tokens": response.usage.cache_creation_input_tokens,
+        "cache_read_input_tokens": response.usage.cache_read_input_tokens,
+        "cout_estime_usd": estimate_cost_usd(model, response.usage),
+    }
     return result
 
 
